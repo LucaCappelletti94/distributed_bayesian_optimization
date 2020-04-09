@@ -1,0 +1,7 @@
+FROM ray-project/base-deps
+
+EXPOSE 6666/tcp
+WORKDIR /home
+COPY . .
+RUN apt-get update -qyy && apt-get install htop byobu python3-dev libasound2-dev -qyy
+RUN pip install ipywidgets && jupyter nbextension enable --py widgetsnbextension
