@@ -1,4 +1,4 @@
-FROM ray-project/base-deps
+FROM ray-project/deploy
 
 EXPOSE 6666/tcp
 WORKDIR /home
