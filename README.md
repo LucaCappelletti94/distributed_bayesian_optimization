@@ -12,12 +12,19 @@ docker run --shm-size=8GB -t --tty --interactive --network host experimenting_on
 And then afterwards:
 
 ```bash
-ray start --head --redis-port=8080
+ray start --head --redis-port=6379 --redis-shard-ports=6380 --node-manager-port=12345 --object-manager-port=12346
 ```
 
-## Running the server
+## Running the client
 
 ```bash
 docker build --file ServerDockerfile -t experimenting_on_ray .
 docker run --shm-size=8GB -t --tty --interactive experimenting_on_ray
+```
+
+And then afterwards
+
+
+```bash
+ray start --redis-address=address_of_the_server:6379 --node-manager-port=12345 --object-manager-port=12346
 ```
