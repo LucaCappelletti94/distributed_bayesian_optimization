@@ -4,6 +4,6 @@ WORKDIR /home
 COPY . .
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
-RUN pip install pip --upgrade
+RUN pip install pip --upgrade && pip install -r requirements.txt --upgrade
 RUN apt-get update -qyy && apt-get install htop byobu python3-dev libasound2-dev vim nano pssh -qyy
 RUN pip install ipywidgets && jupyter nbextension enable --py widgetsnbextension
