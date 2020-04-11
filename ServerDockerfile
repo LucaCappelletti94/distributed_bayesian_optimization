@@ -14,5 +14,9 @@ RUN cd /ray/python/ray/dashboard/client && npm ci && npm run build
 RUN apt-get update -qyy && apt-get install -qyy rbash
 # Create the jailed user
 RUN useradd -ms $(which rbash) jaileduser
+# Set user password
+RUN echo "plz_change_this_321" | passwd --stdin jaileduser
 # Clean the evironment variable of the user
 RUN su - jaileduser -c "for c in $(set | cut -d '=' -f 1); do unset $c; done"
+# Make it's home non  usable
+RUN chmod 0000 /home/jaileduser
