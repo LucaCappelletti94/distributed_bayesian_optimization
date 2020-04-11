@@ -10,10 +10,8 @@ RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && apt-get install -
 RUN pip install ipywidgets && jupyter nbextension enable --py widgetsnbextension
 RUN cd /ray/python/ray/dashboard/client && npm ci && npm run build
 
-# Install the restricted bash
-RUN apt-get update -qyy && apt-get install -qyy rbash
 # Create the jailed user
-RUN useradd -ms $(which rbash) jaileduser
+RUN useradd -ms "$(which bash) -r" jaileduser
 # Set user password
 RUN echo "plz_change_this_321" | passwd --stdin jaileduser
 # Clean the evironment variable of the user
