@@ -5,7 +5,7 @@ Trying to understand how to use Ray to run distributed Bayesian Optimization
 To connect to the server and afterwards have access to the various dashboards you need to connect with an SHH tunnel as follows:
 
 ```bash
-ssh -L 8265:localhost:8265 -L 6006:localhost:6006 hostname
+ssh -L 8265:localhost:8265 -L 6006:localhost:6006 server_hostname
 ```
 
 The 8265 port is for the Ray dashboard, while the 6006 port is for the tensorboard dashboard.
