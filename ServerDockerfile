@@ -9,3 +9,10 @@ RUN apt-get update -qyy && apt-get install htop byobu python3-dev libasound2-dev
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && apt-get install -y nodejs
 RUN pip install ipywidgets && jupyter nbextension enable --py widgetsnbextension
 RUN cd /ray/python/ray/dashboard/client && npm ci && npm run build
+
+# Install the restricted bash
+RUN apt-get update -qyy && apt-get install -qyy rbash
+# Create the jailed user
+RUN useradd -ms $(which rbash) jaileduser
+# Clean the evironment variable of the user
+RUN su - jaileduser -c "for c in $(set | cut -d '=' -f 1); do unset $c; done"
