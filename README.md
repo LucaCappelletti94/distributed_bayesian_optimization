@@ -35,5 +35,5 @@ And then afterwards
 
 
 ```bash
-ray start --redis-address=address_of_the_server:6379 --node-manager-port=12345 --object-manager-port=12346
+ray start --address=address_of_the_server:6379 --node-manager-port=12345 --object-manager-port=12346
 ```
