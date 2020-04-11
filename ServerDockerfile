@@ -11,10 +11,10 @@ RUN pip install ipywidgets && jupyter nbextension enable --py widgetsnbextension
 RUN cd /ray/python/ray/dashboard/client && npm ci && npm run build
 
 # Create the jailed user
-RUN useradd -ms "$(which bash) -r" jaileduser
+RUN useradd -ms "/bin/bash" jaileduser
 # Set user password
-RUN echo "plz_change_this_321" | passwd --stdin jaileduser
+RUN echo "jaileduser:plz_change_this_321" | chpasswd 
 # Clean the evironment variable of the user
-RUN su - jaileduser -c "for c in $(set | cut -d '=' -f 1); do unset $c; done"
-# Make it's home non  usable
-RUN chmod 0000 /home/jaileduser
+RUN echo "export PATH=''\n" >> /home/jaileduser/.bashrc
+# Set the restricted bash
+RUN chsh -s /bin/rbash jaileduser
