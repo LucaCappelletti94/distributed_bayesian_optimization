@@ -29,7 +29,7 @@ ray start --head --redis-port=6379 --redis-shard-ports=6380 --node-manager-port=
 ## Running the client
 
 ```bash
-docker build --file ClientDockerFile -t experimenting_on_ray_client .
+docker build --file ClientDockerfile -t experimenting_on_ray_client .
 docker run --shm-size=8GB -t --tty --interactive --network host experimenting_on_ray_client
 ```
 
