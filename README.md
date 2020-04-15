@@ -17,7 +17,7 @@ Start by running:
 
 ```bash
 docker build --file ServerDockerfile -t experimenting_on_ray_server .
-docker run --shm-size=8GB -t --tty --interactive --network host experimenting_on_ray_server
+docker run --shm-size=16GB -t --tty --interactive --network host experimenting_on_ray_server
 ```
 
 And then afterwards:
@@ -30,7 +30,7 @@ ray start --head --redis-port=6379 --redis-shard-ports=6380 --node-manager-port=
 
 ```bash
 docker build --file ClientDockerfile -t experimenting_on_ray_client .
-docker run --shm-size=8GB -t --tty --interactive --network host experimenting_on_ray_client
+docker run --shm-size=16GB -t --tty --interactive --network host experimenting_on_ray_client
 ```
 
 And then afterwards
