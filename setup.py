@@ -61,7 +61,8 @@ setup(
     # Add here the package dependencies
     install_requires=[
         "ray",
-        "bayesian-optimization"
+        "bayesian-optimization",
+        "pandas"
     ],
     extras_require=extras,
 )
