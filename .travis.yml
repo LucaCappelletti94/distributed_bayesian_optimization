@@ -38,6 +38,26 @@ script:
 - chmod 755 *
 - sinfo
 - sbatch test.sh --wait
+- sleep 1
+- echo "Slept 1"
+- sleep 1
+- echo "Slept 2"
+- sleep 1
+- echo "Slept 3"
+- sleep 1
+- echo "Slept 4"
+- sleep 1
+- echo "Slept 5"
+- sleep 1
+- echo "Slept 6"
+- sleep 1
+- echo "Slept 7"
+- sleep 1
+- echo "Slept 8"
+- sleep 1
+- echo "Slept 9"
+- sleep 1
+- echo "Slept 10"
 - ls
 - coverage combine --append || true
 - coverage report
