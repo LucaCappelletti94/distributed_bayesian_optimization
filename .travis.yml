@@ -18,9 +18,11 @@ python:
 before_install:
   - sudo mkdir /etc/slurm-llnl
   - sudo cp slurm/slurm.conf /etc/slurm-llnl
-  - service munge start
+  - sudo service munge start
+  - sudo /etc/init.d/slurmctld restart
+  - sudo /etc/init.d/slurmd restart
+  - sinfo
   - pip install --upgrade pytest
-  - squeue
 install:
 - pip install .[test]
 before_script:
