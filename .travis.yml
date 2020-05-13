@@ -10,8 +10,6 @@ addons:
     - texlive-fonts-extra
     - texinfo 
     - munge
-    - munge-libs
-    - munge-devel  
     - slurm-llnl
   sonarcloud:
     organization: lucacappelletti94-github
