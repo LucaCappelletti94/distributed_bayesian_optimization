@@ -35,7 +35,7 @@ script:
 - rm -rf .coverage
 - coverage erase
 - pytest --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
-- srun test.sh
+- sudo srun test.sh
 - coverage combine --append || true
 - coverage report
 - coverage xml
