@@ -1,16 +1,18 @@
 dist: trusty
 git:
   depth: false
-apt_packages:
-  - texlive
-  - ghostscript
-  - texlive-fonts-extra
-  - texinfo 
-  - munge
-  - munge-libs
-  - munge-devel  
-  - slurm-llnl
+  
 addons:
+  apt:
+    packages:
+    - texlive
+    - ghostscript
+    - texlive-fonts-extra
+    - texinfo 
+    - munge
+    - munge-libs
+    - munge-devel  
+    - slurm-llnl
   sonarcloud:
     organization: lucacappelletti94-github
     token:
