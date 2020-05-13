@@ -14,10 +14,8 @@ space = {
     'x': (0, 20)
 }
 
-def my_func(x):
-    return {
-        "mean_loss":x**2
-    }
+def my_func(config, reporter):
+    reporter(mean_loss=config["x"]**2)
 
 algo = BayesOptSearch(space, max_concurrent=2, metric="mean_loss", mode="min",  utility_kwargs={
     "kind": "ucb",
