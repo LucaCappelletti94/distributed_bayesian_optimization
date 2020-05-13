@@ -37,7 +37,8 @@ script:
 - pytest --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
 - chmod 755 *
 - sinfo
-- sbatch test.sh
+- sbatch test.sh --wait
+- ls
 - coverage combine --append || true
 - coverage report
 - coverage xml

@@ -36,4 +36,4 @@ do
   sleep 5
 done
 
-python -u trainer.py $redis_password 15 # Pass the total number of allocated CPUs
+python -u trainer.py $redis_password 2 # Pass the total number of allocated CPUs
