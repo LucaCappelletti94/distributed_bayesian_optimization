@@ -15,8 +15,7 @@ space = {
 }
 
 def my_func(config, reporter):
-    for i in range(100):
-        reporter(mean_loss=config["x"]**2)
+    reporter(mean_loss=config["x"]**2)
 
 algo = BayesOptSearch(space, metric="mean_loss", mode="min",  utility_kwargs={
     "kind": "ucb",
@@ -24,6 +23,6 @@ algo = BayesOptSearch(space, metric="mean_loss", mode="min",  utility_kwargs={
     "xi": 0.0
 })
 
-analysis = ray.tune.run(my_func, search_alg=algo)
+analysis = ray.tune.run(my_func, search_alg=algo, num_samples=10)
 
 analysis.get_best_config(metric="mean_loss")
