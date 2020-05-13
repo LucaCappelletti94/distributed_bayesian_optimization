@@ -2,7 +2,7 @@
 
 #SBATCH --job-name=test
 #SBATCH --cpus-per-task=1
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 #SBATCH --tasks-per-node 1
 
 worker_num=1 # Must be one less that the total number of nodes
@@ -28,7 +28,7 @@ sleep 5
 # the worker will not be able to connect to redis. In case of longer delay,
 # adjust the sleeptime above to ensure proper order.
 
-for ((  i=1; i<=$worker_num; i++ ))
+for ((  i=0; i<$worker_num; i++ ))
 do
   node2=${nodes_array[$i]}
   srun --nodes=1 --ntasks=1 -w $node2 ray start --block --address=$ip_head --redis-password=$redis_password & # Starting the workers
