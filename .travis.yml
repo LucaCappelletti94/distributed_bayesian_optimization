@@ -21,7 +21,6 @@ before_install:
   - sudo service munge start
   - sudo /etc/init.d/slurmctld restart
   - sudo /etc/init.d/slurmd restart
-  - sinfo
   - pip install --upgrade pytest
 install:
 - pip install .[test]
@@ -36,6 +35,7 @@ script:
 - rm -rf .coverage
 - coverage erase
 - pytest --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
+- srun test.sh
 - coverage combine --append || true
 - coverage report
 - coverage xml
