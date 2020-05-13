@@ -2,10 +2,10 @@
 
 #SBATCH --job-name=test
 #SBATCH --cpus-per-task=1
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --tasks-per-node 1
 
-worker_num=2 # Must be one less that the total number of nodes
+worker_num=1 # Must be one less that the total number of nodes
 
 # module load Langs/Python/3.6.4 # This will vary depending on your environment
 # source venv/bin/activate
