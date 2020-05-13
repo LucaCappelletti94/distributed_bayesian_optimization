@@ -22,8 +22,9 @@ before_install:
   - sudo cp slurm/slurm.conf /etc/slurm-llnl
   - sudo /usr/sbin/create-munge-key
   - sudo service munge start
-  - sudo /etc/init.d/slurmctld restart
-  - sudo /etc/init.d/slurmd restart
+  - sudo systemctl enable slurmd.service
+  - sudo systemctl start slurmd.service
+  - sudo systemctl status slurmd.service  
   - sinfo
   - pip install --upgrade pytest
 install:
