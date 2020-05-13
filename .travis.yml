@@ -6,7 +6,8 @@ apt_packages:
   - ghostscript
   - texlive-fonts-extra
   - texinfo 
-  - slurm-llnl 
+  - munge
+  - slurm-llnl
 addons:
   sonarcloud:
     organization: lucacappelletti94-github
