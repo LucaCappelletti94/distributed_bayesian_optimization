@@ -19,7 +19,11 @@ def my_func(x):
         "mean_loss":x**2
     }
 
-algo = BayesOptSearch(space, max_concurrent=2, metric="mean_loss", mode="min")
+algo = BayesOptSearch(space, max_concurrent=2, metric="mean_loss", mode="min",  utility_kwargs={
+    "kind": "ucb",
+    "kappa": 2.5,
+    "xi": 0.0
+})
 
 analysis = ray.tune.run(my_func, algo=algo)
 
