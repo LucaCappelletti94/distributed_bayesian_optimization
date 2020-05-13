@@ -37,27 +37,12 @@ script:
 - pytest --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
 - chmod 755 *
 - sinfo
-- sbatch test.sh --wait
-- sleep 2
-- echo "Slept 1"
-- sleep 2
-- echo "Slept 2"
-- sleep 2
-- echo "Slept 3"
-- sleep 2
-- echo "Slept 4"
-- sleep 2
-- echo "Slept 5"
-- sleep 2
-- echo "Slept 6"
-- sleep 2
-- echo "Slept 7"
-- sleep 2
-- echo "Slept 8"
-- sleep 2
-- echo "Slept 9"
-- sleep 2
-- echo "Slept 10"
+- sbatch bayesian_test.sh --wait
+- sleep 5
+- sleep 5
+- sleep 5
+- sleep 5
+- sleep 5
 - cat slurm*.out
 - coverage combine --append || true
 - coverage report
