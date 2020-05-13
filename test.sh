@@ -2,7 +2,6 @@
 
 #SBATCH --job-name=test
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=1GB
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node 1
 
