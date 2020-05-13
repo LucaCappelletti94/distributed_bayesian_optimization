@@ -1,4 +1,3 @@
-dist: trusty
 git:
   depth: false
   
@@ -9,8 +8,6 @@ addons:
     - ghostscript
     - texlive-fonts-extra
     - texinfo 
-    - munge
-    - systemd
     - slurm-llnl
   sonarcloud:
     organization: lucacappelletti94-github
@@ -23,9 +20,8 @@ before_install:
   - sudo cp slurm/slurm.conf /etc/slurm-llnl
   - sudo /usr/sbin/create-munge-key
   - sudo service munge start
-  - sudo systemctl enable slurmd.service
-  - sudo systemctl start slurmd.service
-  - sudo systemctl status slurmd.service  
+  - sudo /etc/init.d/slurmctld restart
+  - sudo /etc/init.d/slurmd restart
   - sinfo
   - pip install --upgrade pytest
 install:
