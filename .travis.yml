@@ -19,6 +19,7 @@ python:
 before_install:
   - sudo mkdir /etc/slurm-llnl
   - sudo cp slurm/slurm.conf /etc/slurm-llnl
+  - sudo /usr/sbin/create-munge-key
   - sudo service munge start
   - sudo /etc/init.d/slurmctld restart
   - sudo /etc/init.d/slurmd restart
