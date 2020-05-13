@@ -17,7 +17,7 @@ language: python
 python:
 - '3.6'
 before_install:
-  - sudo cp slurm/slurm.conf /etc/slurm-llnl
+  - sudo cp slurm.conf /etc/slurm-llnl
   - sudo service munge start
   - sudo /etc/init.d/slurmctld restart
   - sudo /etc/init.d/slurmd restart
@@ -38,27 +38,27 @@ script:
 - chmod 755 *
 - sinfo
 - sbatch test.sh --wait
-- sleep 1
+- sleep 2
 - echo "Slept 1"
-- sleep 1
+- sleep 2
 - echo "Slept 2"
-- sleep 1
+- sleep 2
 - echo "Slept 3"
-- sleep 1
+- sleep 2
 - echo "Slept 4"
-- sleep 1
+- sleep 2
 - echo "Slept 5"
-- sleep 1
+- sleep 2
 - echo "Slept 6"
-- sleep 1
+- sleep 2
 - echo "Slept 7"
-- sleep 1
+- sleep 2
 - echo "Slept 8"
-- sleep 1
+- sleep 2
 - echo "Slept 9"
-- sleep 1
+- sleep 2
 - echo "Slept 10"
-- ls
+- cat slurm*.out
 - coverage combine --append || true
 - coverage report
 - coverage xml
