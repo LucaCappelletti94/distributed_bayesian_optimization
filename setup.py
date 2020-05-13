@@ -62,7 +62,8 @@ setup(
     install_requires=[
         "ray",
         "bayesian-optimization",
-        "pandas"
+        "pandas",
+        "tabulate"
     ],
     extras_require=extras,
 )
