@@ -18,7 +18,6 @@ python:
 before_install:
   - sudo mkdir /etc/slurm-llnl
   - sudo cp slurm/slurm.conf /etc/slurm-llnl
-  - /usr/sbin/create-munge-key
   - service munge start
   - pip install --upgrade pytest
   - squeue
