@@ -16,9 +16,8 @@ language: python
 python:
 - '3.6'
 before_install:
-  - mkdir /etc/slurm-llnl
-  - cp slurm/slurm.conf /etc/slurm-llnl
-  - cp batchtools.conf.R tests/testthat
+  - sudo mkdir /etc/slurm-llnl
+  - sudo cp slurm/slurm.conf /etc/slurm-llnl
   - /usr/sbin/create-munge-key
   - service munge start
   - pip install --upgrade pytest
