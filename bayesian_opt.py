@@ -15,9 +15,10 @@ space = {
 }
 
 def my_func(config, reporter):
-    reporter(mean_loss=config["x"]**2)
+    for i in range(100):
+        reporter(mean_loss=config["x"]**2)
 
-algo = BayesOptSearch(space, max_concurrent=2, metric="mean_loss", mode="min",  utility_kwargs={
+algo = BayesOptSearch(space, metric="mean_loss", mode="min",  utility_kwargs={
     "kind": "ucb",
     "kappa": 2.5,
     "xi": 0.0
