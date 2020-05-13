@@ -25,6 +25,6 @@ algo = BayesOptSearch(space, max_concurrent=2, metric="mean_loss", mode="min",  
     "xi": 0.0
 })
 
-analysis = ray.tune.run(my_func, algo=algo)
+analysis = ray.tune.run(my_func, search_alg=algo)
 
 analysis.get_best_config(metric="mean_loss")
