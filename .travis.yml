@@ -1,6 +1,12 @@
 dist: trusty
 git:
   depth: false
+apt_packages:
+  - texlive
+  - ghostscript
+  - texlive-fonts-extra
+  - texinfo 
+  - slurm-llnl 
 addons:
   sonarcloud:
     organization: lucacappelletti94-github
@@ -10,7 +16,13 @@ language: python
 python:
 - '3.6'
 before_install:
-- pip install --upgrade pytest
+  - mkdir /etc/slurm-llnl
+  - cp slurm/slurm.conf /etc/slurm-llnl
+  - cp batchtools.conf.R tests/testthat
+  - /usr/sbin/create-munge-key
+  - service munge start
+  - pip install --upgrade pytest
+  - squeue
 install:
 - pip install .[test]
 before_script:
