@@ -37,3 +37,5 @@ do
 done
 
 python -u trainer.py $redis_password 2 # Pass the total number of allocated CPUs
+
+echo "TEST" > test_executed.txt
