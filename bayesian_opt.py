@@ -293,6 +293,7 @@ random_search_analysis = tune.run(
     },
     num_samples=10,  # Number of iterations
     resources_per_trial={"cpu":1, "gpu":0},
+    raise_on_failed_trial=False,
     verbose=0
 )
 
@@ -320,6 +321,7 @@ analysis = tune.run(
     config=config,
     num_samples=100, # Number of iterations
     resources_per_trial={"cpu":1, "gpu":0},
+    raise_on_failed_trial=False,
     verbose=0
 )
 
