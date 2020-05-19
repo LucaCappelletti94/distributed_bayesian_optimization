@@ -38,11 +38,7 @@ script:
 - chmod 755 *
 - sinfo
 - sbatch bayesian_test.sh --wait
-- sleep 10
-- sleep 10
-- sleep 10
-- sleep 10
-- sleep 10
+- sleep 60
 - cat slurm*.out
 - coverage combine --append || true
 - coverage report
