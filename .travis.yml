@@ -38,8 +38,11 @@ script:
 - chmod 755 *
 - sinfo
 - sbatch bayesian_test.sh --wait
-- sleep 60
-- cat slurm*.out
+- sleep 120
+- echo "RANDOM SEARCH OUTPUT"
+- head random_search.csv
+- echo "BAYESIAN PROCESS OUTPUT"
+- head bayesian_process.csv
 - coverage combine --append || true
 - coverage report
 - coverage xml
