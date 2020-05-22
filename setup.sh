@@ -1,8 +1,4 @@
 #!/bin/bash
-# Installing virtual env
-python -m pip install virtualenv
-# Setupping the virtualend
-python -m venv ray_venv
 # Cloning ray, getting my own version up until
 # they accept the latest pull request.
 git clone https://github.com/LucaCappelletti94/ray
@@ -18,5 +14,3 @@ python python/ray/setup-dev.py --yes
 cd ..
 # Installing additional requirements
 pip install .
-# Deactivate environment
-deactivate

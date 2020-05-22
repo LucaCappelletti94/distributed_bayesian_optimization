@@ -8,7 +8,7 @@
 worker_num=1 # Must be one less that the total number of nodes
 
 # module load Langs/Python/3.6.4 # This will vary depending on your environment
-source venv/bin/activate
+# source venv/bin/activate
 
 nodes=$(scontrol show hostnames $SLURM_JOB_NODELIST) # Getting the node names
 nodes_array=( $nodes )

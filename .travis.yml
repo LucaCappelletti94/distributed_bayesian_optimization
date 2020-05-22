@@ -35,9 +35,7 @@ script:
 - rm -rf .coverage
 - coverage erase
 - bash setup.sh
-- source venv/bin/activate
 - pytest -s tests/ --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
-- deactivate
 - chmod 755 *
 - sbatch bayesian_test.sh --wait
 - sleep 120
