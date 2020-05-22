@@ -19,7 +19,7 @@ First of all you need to setup the virtual environment:
 
 .. code:: shell
 
-    venv name_of_the_venv
+    python -m venv name_of_the_venv
 
 Then fill it up.
 

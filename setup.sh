@@ -13,4 +13,4 @@ python python/ray/setup-dev.py --yes
 # Navigating back out
 cd ..
 # Installing additional requirements
-pip install .
+pip install . --user
