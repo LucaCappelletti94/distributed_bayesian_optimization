@@ -23,7 +23,7 @@ redis_password=$(uuidgen)
 export ip_head # Exporting for latter access by trainer.py
 
 srun --nodes=1 --ntasks=1 -w $node1 ray start --block --head --redis-port=6379 --redis-password=$redis_password & # Starting the head
-sleep 2
+sleep 10
 # Make sure the head successfully starts before any worker does, otherwise
 # the worker will not be able to connect to redis. In case of longer delay,
 # adjust the sleeptime above to ensure proper order.
@@ -33,7 +33,7 @@ do
   node2=${nodes_array[$i]}
   srun --nodes=1 --ntasks=1 -w $node2 ray start --block --address=$ip_head --redis-password=$redis_password & # Starting the workers
   # Flag --block will keep ray process alive on each compute node.
-  sleep 2
+  sleep 10
 done
 
-python -u bayesian_opt.py $redis_password 2 # Pass the total number of allocated CPUs
+python -u bayesian_opt.py $redis_password
