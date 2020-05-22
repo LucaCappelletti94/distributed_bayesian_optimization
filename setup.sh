@@ -14,4 +14,4 @@ python python/ray/setup-dev.py --yes
 # Navigating back out
 cd ..
 # Installing additional requirements
-python -m pip install .
+# python -m pip install .
