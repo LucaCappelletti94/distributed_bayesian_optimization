@@ -61,9 +61,7 @@ setup(
     # Add here the package dependencies
     install_requires=[
         "ray[tune]",
-        "bayesian-optimization",
-        "pandas",
-        "tabulate"
+        "bayesian-optimization"
     ],
     extras_require=extras,
 )

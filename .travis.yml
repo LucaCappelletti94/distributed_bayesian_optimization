@@ -34,15 +34,11 @@ after_script:
 script:
 - rm -rf .coverage
 - coverage erase
-- pytest --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
+- pytest -s tests/ --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
 - chmod 755 *
-- sinfo
+- bash setup.sh
 - sbatch bayesian_test.sh --wait
 - sleep 120
-- echo "RANDOM SEARCH OUTPUT"
-- head random_search.csv
-- echo "BAYESIAN PROCESS OUTPUT"
-- head bayesian_process.csv
 - coverage combine --append || true
 - coverage report
 - coverage xml
