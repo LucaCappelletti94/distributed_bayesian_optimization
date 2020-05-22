@@ -1,4 +1,5 @@
 #!/bin/bash
+python -m pip install click
 # Cloning ray, getting my own version up until
 # they accept the latest pull request.
 git clone https://github.com/LucaCappelletti94/ray
