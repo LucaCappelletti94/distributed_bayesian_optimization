@@ -8,4 +8,4 @@
 __pycache__
 __pycache__
 coverage.xml
-ray/*
+ray
