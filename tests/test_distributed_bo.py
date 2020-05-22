@@ -6,7 +6,7 @@ from distributed_bayesian_optimization import distributed_bo
 
 def loss(config, reporter):
     x = config.get("x")
-    reporter(loss=-x/10)  # A simple function to optimize
+    reporter(loss=x)  # A simple function to optimize
 
 
 def test_distributed_bo():
@@ -20,6 +20,5 @@ def test_distributed_bo():
     }
 
     analysis = distributed_bo(loss, space, "loss", name="bo_test", bo_steps=50)
-    analysis.dataframe().to_csv("results.csv")
     ray.shutdown()
     shutil.rmtree("bo_test")

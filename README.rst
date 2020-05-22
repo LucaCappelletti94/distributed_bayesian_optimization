@@ -1,17 +1,27 @@
 distributed_bayesian_optimization
 =========================================================================================
 |travis| |sonar_quality| |sonar_maintainability| |codacy|
-|code_climate_maintainability| |pip| |downloads|
+|code_climate_maintainability|
 
 Using Ray to run distributed Bayesian optimization on SLURM clusters.
 
-How do I install this package?
-----------------------------------------------
-As usual, just download it using pip:
+Usage examples
+------------------------
+First of all you need to setup the virtual environment:
 
 .. code:: shell
 
-    pip install distributed_bayesian_optimization
+    bash setup.py
+
+and then you can launch the job on slurm:
+
+.. code:: shell
+
+    sbatch bayesian_test.sh
+
+If everything runs smoothly, you should get afterwards a file called BO.csv in the same directory.
+
+Customize the file custom_loss.py accordingly to get the desired results.
 
 Tests Coverage
 ----------------------------------------------
@@ -41,14 +51,6 @@ Using Ray to run distributed Bayesian optimization on SLURM clusters.
 .. |coveralls| image:: https://coveralls.io/repos/github/LucaCappelletti94/distributed_bayesian_optimization/badge.svg?branch=master
     :target: https://coveralls.io/github/LucaCappelletti94/distributed_bayesian_optimization?branch=master
     :alt: Coveralls Coverage
-
-.. |pip| image:: https://badge.fury.io/py/distributed-bayesian-optimization.svg
-    :target: https://badge.fury.io/py/distributed-bayesian-optimization
-    :alt: Pypi project
-
-.. |downloads| image:: https://pepy.tech/badge/distributed-bayesian-optimization
-    :target: https://pepy.tech/project/distributed-bayesian-optimization
-    :alt: Pypi total project downloads
 
 .. |codacy| image:: https://api.codacy.com/project/badge/Grade/a37a87df721041e592686bfc99390760
     :target: https://www.codacy.com/manual/LucaCappelletti94/distributed_bayesian_optimization?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LucaCappelletti94/distributed_bayesian_optimization&amp;utm_campaign=Badge_Grade

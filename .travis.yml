@@ -36,6 +36,7 @@ script:
 - coverage erase
 - pytest -s tests/ --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
 - chmod 755 *
+- bash setup.sh
 - sbatch bayesian_test.sh --wait
 - sleep 120
 - coverage combine --append || true

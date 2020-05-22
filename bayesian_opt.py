@@ -14,7 +14,9 @@ ray.init(
     logging_level=logging.CRITICAL
 )
 
-distributed_bo(custom_loss, space, metric="my_custom_loss")
+analysis = distributed_bo(custom_loss, space, metric="my_custom_loss")
+
+analysis.dataframe().to_csv("BO.csv")
 
 # Then we can close down ray
 ray.shutdown()
