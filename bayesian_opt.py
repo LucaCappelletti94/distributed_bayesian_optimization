@@ -6,10 +6,6 @@ from distributed_bayesian_optimization import distributed_bo
 from custom_loss import custom_loss, space
 
 
-def loss(config, reporter):
-    reporter(loss=config["x"]**2)  # A simple function to optimize
-
-
 redis_password = sys.argv[1]
 ray.init(
     address=os.environ["ip_head"],
