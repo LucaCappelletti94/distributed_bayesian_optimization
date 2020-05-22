@@ -7,7 +7,21 @@ Using Ray to run distributed Bayesian optimization on SLURM clusters.
 
 Usage examples
 ------------------------
+Firstly let's find the module for python on your slurm clusters:
+
+.. code:: shell
+
+    module avail python
+
+Then you can load the python module you have.
+
 First of all you need to setup the virtual environment:
+
+.. code:: shell
+
+    venv name_of_the_venv
+
+Then fill it up.
 
 .. code:: shell
 
