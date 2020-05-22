@@ -11,7 +11,7 @@ First of all you need to setup the virtual environment:
 
 .. code:: shell
 
-    bash setup.py
+    bash setup.sh
 
 and then you can launch the job on slurm:
 
