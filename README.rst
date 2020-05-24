@@ -7,21 +7,31 @@ Using Ray to run distributed Bayesian optimization on SLURM clusters.
 
 Usage examples
 ------------------------
-Firstly let's find the module for python on your slurm clusters:
+Firstly let's find the module for python 3.6.x on your slurm clusters:
 
 .. code:: shell
 
     module avail python
 
-Then you can load the python module you have.
+Then you can load the python module you have by using a command like the following:
 
-First of all you need to setup the virtual environment:
+.. code:: shell
+
+    module load your_python_module
+
+You will need to `update this line in the bayesian_test.sh file <https://github.com/LucaCappelletti94/distributed_bayesian_optimization/blob/c63b42b036dedb4e550b94a9f1edeb8c55645dc3/bayesian_test.sh#L10>`__
+with the module you have chosen to use.
+
+Then you need to setup the virtual environment:
 
 .. code:: shell
 
     python -m venv name_of_the_venv
 
-Then fill it up.
+Likewise, you will need to `update the corresponding line in the bayesian_test.sh file <https://github.com/LucaCappelletti94/distributed_bayesian_optimization/blob/c63b42b036dedb4e550b94a9f1edeb8c55645dc3/bayesian_test.sh#L11>`__
+with the name of the virtual environment you have chosen to use.
+
+Now, within your virtual environment, execute the `setup.sh bash file <https://github.com/LucaCappelletti94/distributed_bayesian_optimization/blob/master/setup.sh>`__.
 
 .. code:: shell
 
