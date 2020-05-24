@@ -5,7 +5,7 @@ distributed_bayesian_optimization
 
 Using Ray to run distributed Bayesian optimization on SLURM clusters.
 
-Usage examples
+Usage example
 ------------------------
 Firstly let's find the module for python 3.6.x on your slurm clusters:
 
