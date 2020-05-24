@@ -1,17 +1,6 @@
 #!/bin/bash
 python -m pip install click
-# Cloning ray, getting my own version up until
-# they accept the latest pull request.
-git clone https://github.com/LucaCappelletti94/ray
-# Getting into the subdirectory
-cd ray
-# Switching to the pull request branch
-git checkout random_search_bo
-# Making sure that this is the last version
-git pull
-# Install Ray
-python python/ray/setup-dev.py --yes
-# Navigating back out
-cd ..
+# Installing latest Ray from master
+python -m pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp36-cp36m-manylinux1_x86_64.whl
 # Installing additional requirements
 python -m pip install -r requirements.txt
