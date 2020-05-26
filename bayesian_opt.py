@@ -10,8 +10,8 @@ redis_password = sys.argv[1]
 ray.init(
     address=os.environ["ip_head"],
     redis_password=redis_password,
-    configure_logging=True,
-    logging_level=logging.CRITICAL
+    # configure_logging=True,
+    # logging_level=logging.CRITICAL
 )
 
 analysis = distributed_bo(custom_loss, space, metric="my_custom_loss")
