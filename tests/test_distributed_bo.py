@@ -10,15 +10,15 @@ def loss(config, reporter):
 
 
 def test_distributed_bo():
-    ray.init(
-        configure_logging=True,
-        logging_level=logging.CRITICAL
-    )
+    ray.init()
 
     space = {
         "x": (0, 20)  # This is the space of parameters to explore
     }
 
     analysis = distributed_bo(loss, space, "loss", name="bo_test", bo_steps=50)
+
+    print(analysis.dataframe())
+
     ray.shutdown()
     shutil.rmtree("bo_test")
