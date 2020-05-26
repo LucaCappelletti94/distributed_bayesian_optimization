@@ -2,3 +2,4 @@ bayesian-optimization
 pandas
 tabulate
 tensorboard
+ray[tune]
