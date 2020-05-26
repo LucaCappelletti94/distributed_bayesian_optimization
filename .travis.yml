@@ -37,6 +37,7 @@ script:
 - bash setup.sh
 - chmod 755 *
 - pytest -s tests/ --cov=distributed_bayesian_optimization --cov-report xml:coverage.xml
+- cat slurm*.out
 - coverage combine --append || true
 - coverage report
 - coverage xml
