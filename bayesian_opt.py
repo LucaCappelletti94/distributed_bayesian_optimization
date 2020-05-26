@@ -16,6 +16,8 @@ ray.init(
 
 analysis = distributed_bo(custom_loss, space, metric="my_custom_loss")
 
+print(analysis.dataframe())
+
 analysis.dataframe().to_csv("BO.csv")
 
 # Then we can close down ray
