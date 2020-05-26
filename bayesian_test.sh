@@ -4,14 +4,24 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node 1
+#SBATCH --mem=2GB
+#SBATCH --time 0:10:00
+#SBATCH --job-name=testing_distributed_BO
 
 worker_num=1 # Must be one less that the total number of nodes
 
-# module load Langs/Python/3.6.4 # This will vary depending on your environment
-# source venv/bin/activate
+####################################
+# CUSTOMIZE THE FOLLOWING LINES!!! #
+####################################
+
+#BASEDIR="/gpfs/work/ELIX4_valentin/cineca_tests"
+#VENVPYTHONDIR="/gpfs/work/ELIX4_valentin/cineca_tests_venv"
+#cd $BASEDIR
+#module load python/3.6.4
+#source $VENVPYTHONDIR/bin/activate
 
 nodes=$(scontrol show hostnames $SLURM_JOB_NODELIST) # Getting the node names
-nodes_array=( $nodes )
+nodes_array=($nodes)
 
 node1=${nodes_array[0]}
 
@@ -22,16 +32,15 @@ redis_password=$(uuidgen)
 
 export ip_head # Exporting for latter access by trainer.py
 
-srun --nodes=1 --ntasks=1 -w $node1 ray start --block --head --redis-port=6379 --redis-password=$redis_password & # Starting the head
+srun --nodes=1 --ntasks=1 -w $node1 ray start --block --head --redis-port=6379 --redis-password=$redis_password &# Starting the head
 sleep 10
 # Make sure the head successfully starts before any worker does, otherwise
 # the worker will not be able to connect to redis. In case of longer delay,
 # adjust the sleeptime above to ensure proper order.
 
-for ((  i=0; i<$worker_num; i++ ))
-do
+for ((i = 0; i < $worker_num; i++)); do
   node2=${nodes_array[$i]}
-  srun --nodes=1 --ntasks=1 -w $node2 ray start --block --address=$ip_head --redis-password=$redis_password & # Starting the workers
+  srun --nodes=1 --ntasks=1 -w $node2 ray start --block --address=$ip_head --redis-password=$redis_password &# Starting the workers
   # Flag --block will keep ray process alive on each compute node.
   sleep 10
 done
