@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node 1
-#SBATCH --mem=2GB
+#SBATCH --mem=1GB
 #SBATCH --time 0:10:00
 #SBATCH --job-name=testing_distributed_BO
 
