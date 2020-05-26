@@ -8,3 +8,4 @@ def test_slurm_distributed_bo():
     for _ in tqdm(range(120)):
         if os.path.exists("BO.csv"):
             break
+    assert os.path.exists("BO.csv")
